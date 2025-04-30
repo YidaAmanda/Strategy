@@ -37,13 +37,15 @@ Você deve **isolar** esses comportamentos em classes independentes e permitir q
 | **1** | Crie a **interface** `MediaStrategy` com dois métodos:<br>`double calcularMedia(double p1, double p2);`<br>`String verificarSituacao(double media);` |
 | **2** | Implemente a classe **concreta** `Aritmetica` que realiza:<br>`média = (p1 + p2) / 2` e aprova se `média ≥ 5.0`. |
 | **3** | Implemente a classe **concreta** `Geometrica` que realiza:<br>`média = √(p1 × p2)` e aprova se `média ≥ 7.0`. |
-| **4** | Crie a classe `Disciplina` contendo nome, notas (`p1`, `p2`), média e situação. Ela recebe um objeto `MediaStrategy` no construtor. |
+| **4** | Crie a classe `src.Disciplina` contendo nome, notas (`p1`, `p2`), média e situação. Ela recebe um objeto `MediaStrategy` no construtor. |
 | **5** | Desenvolva a classe `Main` (método `main`) demonstrando o uso das duas estratégias (comente/descomente para trocar). |
 | **6** | Compile com `javac` e execute com `java Main`. |
 
 ### 4.1 Exemplo de Código
 
 ```java
+import src.Disciplina;
+
 public class Main {
     public static void main(String[] args) {
         MediaStrategy estrategia = new Aritmetica();      // troque por new Geometrica()
@@ -79,7 +81,7 @@ classDiagram
         +calcularMedia(p1, p2)
         +verificarSituacao(media)
     }
-    class Disciplina {
+    class src.Disciplina {
         -nome : String
         -p1 : double
         -p2 : double
@@ -92,8 +94,8 @@ classDiagram
 
     MediaStrategy <|.. Aritmetica
     MediaStrategy <|.. Geometrica
-    Disciplina --> MediaStrategy
-    Main --> Disciplina
+    src.Disciplina --> MediaStrategy
+    Main --> src.Disciplina
 ```
 
 ---
